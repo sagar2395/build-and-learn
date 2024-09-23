@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-backend
+  labels:
+    app: go-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-backend
+  template:
+    metadata:
+      labels:
+        app: go-backend
+    spec:
+      containers:
+      - name: docker-gs-ping
+        image: docker.io/sagarchhabra02/docker-gs-ping:v1.2
+        ports:
+        - containerPort: 8080

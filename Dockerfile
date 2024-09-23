@@ -1,4 +1,4 @@
-FROM golang:1.23
+FROM golang:1.23 As build
 
 WORKDIR /app
 
@@ -8,6 +8,13 @@ RUN go mod download
 COPY main.go ./
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o /docker-gs-ping
+
+
+FROM gcr.io/distroless/base-debian11 AS release
+
+WORKDIR /
+
+COPY --from=build /docker-gs-ping .
 
 EXPOSE 8080
 
