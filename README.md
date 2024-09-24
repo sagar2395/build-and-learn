@@ -6,7 +6,7 @@
 
 
 - *kubectl expose deployment go-backend --type=LoadBalancer --name=go-lb-service* - Use this for creating load balancer service
-- *kubectl port-forward 9000:8080* - This command is used to forward 9000 port from local machine to kubernetes cluster.
+- *kubectl port-forward deployments/name 9000:8080* - This command is used to forward 9000 port from local machine to kubernetes cluster.
 
 Lab Plan - 
 
