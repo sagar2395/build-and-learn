@@ -8,6 +8,9 @@
 - *kubectl expose deployment go-backend --type=LoadBalancer --name=go-lb-service* - Use this for creating load balancer service
 - *kubectl port-forward deployments/name 9000:8080* - This command is used to forward 9000 port from local machine to kubernetes cluster.
 
+I am using colima for running docker runtime on mac.
+run colima start to run docker engine on MAC.
+
 Lab Plan - 
 
 Labs 
