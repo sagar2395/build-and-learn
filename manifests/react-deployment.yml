@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-ui
+  labels:
+    app: react-ui
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react-ui
+  template:
+    metadata:
+      labels:
+        app: react-ui
+    spec:
+      containers:
+      - name: react-ui
+        image: docker.io/sagarchhabra02/react-ui:v1.0
+        ports:
+        - containerPort: 80
