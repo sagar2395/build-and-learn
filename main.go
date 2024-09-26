@@ -1,31 +1,26 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
-	"os"
-
-	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
 )
 
+func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
+	// Setting content-type to application/json
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", r.Header.Get("Origin"))
+	// Sending Hello World message in JSON format
+	fmt.Fprint(w, `{"message": "Hello My Boyyyy"}`)
+}
+
 func main() {
-	e := echo.New()
+	// Assigning the handler to an endpoint
+	http.HandleFunc("/helloworld", helloWorldHandler)
 
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
-
-	e.GET("/", func(c echo.Context) error {
-		return c.HTML(http.StatusOK, "hello world!! This is Sagar Chhabra")
-	})
-
-	e.GET("/health", func(c echo.Context) error {
-		return c.JSON(http.StatusOK, struct{ Status string }{Status: "OK"})
-	})
-
-	httpPort := os.Getenv("PORT")
-	if httpPort == "" {
-		httpPort = "8080"
+	// Start the server on port 8080
+	fmt.Println("Server is listening on port 8090...")
+	err := http.ListenAndServe(":8090", nil)
+	if err != nil {
+		fmt.Println("Error starting the server:", err)
 	}
-
-	e.Logger.Fatal(e.Start(":" + httpPort))
 }
