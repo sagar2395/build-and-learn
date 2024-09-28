@@ -19,3 +19,18 @@ spec:
         image: docker.io/sagarchhabra02/react-ui:v1.0
         ports:
         - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-ui-cluster-ip-service
+  labels: 
+    name: react-ui-cluster-ip-service
+spec:
+  selector:
+    app: react-ui
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80

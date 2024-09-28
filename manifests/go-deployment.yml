@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: docker-gs-ping
-        image: docker.io/sagarchhabra02/docker-gs-ping:v1.2
+        image: docker.io/sagarchhabra02/docker-gs-ping:v1.3
         ports:
         - containerPort: 8080
