@@ -7,7 +7,7 @@ function App() {
 
   const fetchMessage = async () => {
     try {
-      const response = await fetch('http://10.108.246.146:8080/helloworld');
+      const response = await fetch('http://go-cluster-ip-service/helloworld');
       const data = await response.json();
       setMessage(data.message);
     }catch (error) {
