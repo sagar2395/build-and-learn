@@ -16,6 +16,6 @@ WORKDIR /
 
 COPY --from=build /docker-gs-ping .
 
-EXPOSE 8080
+EXPOSE 8090
 
 CMD ["/docker-gs-ping"]

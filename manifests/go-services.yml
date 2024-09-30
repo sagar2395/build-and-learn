@@ -1,17 +1,17 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: go-node-port-service
-spec:
-  type: NodePort
-  selector:
-    name: go-cluster-ip-service
-  ports:
-    - port: 8080
-      targetPort: 8080
-      nodePort: 30007
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: go-node-port-service
+# spec:
+#   type: NodePort
+#   selector:
+#     name: go-cluster-ip-service
+#   ports:
+#     - port: 8080
+#       targetPort: 8080
+#       nodePort: 30007
 
----
+# ---
 apiVersion: v1
 kind: Service
 metadata:
@@ -23,5 +23,5 @@ spec:
     app: go-backend
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 8090
+      targetPort: 8090

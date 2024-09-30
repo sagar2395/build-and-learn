@@ -1,9 +1,9 @@
-react_version := 1.3
-go_version := 1.3
+react_version := v2.1
+go_version := v2.1
 
 build:
-	docker build -t sagarchhabra02/docker-gs-ping:$(go_version) .
-	docker build -t sagarchhabra02/react-ui:$(react_version) .
+	DOCKER_BUILDKIT=1 docker build -t sagarchhabra02/docker-gs-ping:$(go_version) .
+	DOCKER_BUILDKIT=1 docker build -t sagarchhabra02/react-ui:$(react_version) ./react-ui/
 	
 push: 
 	docker push sagarchhabra02/docker-gs-ping:$(go_version)
